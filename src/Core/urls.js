@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const API = axios.create({
-  baseURL: "http://localhost:5004",
+  baseURL: "http://examwebsiteapi.nuhvin.com",
 });
