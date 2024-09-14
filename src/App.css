@@ -1,38 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0.5rem;
+  height: 100vh;
+  overflow: hidden;
+  /* border: 2px solid red; */
 }
 
-.App-link {
-  color: #61dafb;
+.second-app {
+  width: 100%;
+  height: 100%;
+  height: calc(100vh - 90px);
+  position: absolute;
+  top: 90px;
+  left: 0;
+  padding: 20px;
+  /* border: 2px solid yellow; */
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+  height: 5px;
+}
+/* The part of the scrollbar you can drag */
+::-webkit-scrollbar-thumb {
+  background-color: #ffb07c; /* Color of the thumb */
+  border-radius: 10px; /* Roundness of the thumb */
+}
+
+/* The track of the scrollbar */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the track */
+  border-radius: 10px; /* Roundness of the track */
 }

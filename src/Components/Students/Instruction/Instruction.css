@@ -1,0 +1,391 @@
+.instruction-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  /* border: 2px solid red; */
+}
+
+.student-instruction-first-card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding: 50px;
+  gap: 1rem;
+  z-index: 2;
+}
+.student-instruction-first-card > h3 {
+  font-size: 20px;
+  color: #ff6600;
+}
+
+.student-instruct-second-book {
+  position: absolute;
+  top: 45%;
+  left: 22%;
+  width: 70px;
+  /* border: 2px solid red; */
+  z-index: 7777;
+}
+
+.student-instruction-first-card > h1 {
+  font-size: 50px;
+}
+
+.student-instruction-first-card > p {
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+
+.student-instruction-first-card > input {
+  width: 300px;
+  height: 40px;
+  border: 1px solid lightgrey;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.student-instruction-first-card > button {
+  width: 150px;
+  height: 40px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+/*  */
+.student-instruction-second-card {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  /* border: 2px solid red; */
+  z-index: 2;
+  position: relative;
+}
+
+.student-instruction-second-card > :nth-child(1) {
+  z-index: 2;
+  width: 65%;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.student-instruction-ornage-card {
+  width: 370px;
+  height: 370px;
+  background-color: #ff6600;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.student-instruction-first-span {
+  width: 10px;
+  height: 10px;
+  background-color: #ff6600;
+  border-radius: 50%;
+  position: absolute;
+  top: 35%;
+  left: 15%;
+}
+
+.student-instruction-second-span {
+  width: 10px;
+  height: 10px;
+  background-color: #ff6600;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  right: 15%;
+}
+
+.student-instruction-first-book {
+  width: 70px;
+  position: absolute;
+  top: 35%;
+  right: 18%;
+}
+
+.student-instruction-color-card {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #ffebcb;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.student-instruction-color-card > div {
+  width: 100%;
+  height: 50px;
+  background-color: #363562;
+  border-top-right-radius: 100px;
+}
+
+/* exam styles */
+
+/*  */
+.student-exam-containe {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* padding: 20px; */
+  gap: 2rem;
+  background-color: #fff;
+}
+
+.student-exam-company-name-display-card {
+  width: 100%;
+  height: 60px;
+  background-color: #ff6600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-exam-company-name-display-card > span {
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.student-exam-main-section {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 90%;
+  padding: 10px 20px;
+}
+
+.student-exam-main-first-card {
+  width: 70%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 10px;
+  height: 100%;
+  /* overflow-y: scroll; */
+  /* border: 2px solid red; */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: relative;
+}
+
+.student-exam-main-first-inner-first-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.student-exam-main-leveltext {
+  color: rgb(55, 226, 55);
+}
+
+.studet-exam-question-card {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.studet-exam-question-card > span {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff6600;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.student-exam-answer-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 60px;
+  width: 100%;
+}
+
+.student-exam-single-answer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.student-exam-single-answer > input {
+  transform: scale(1.2);
+}
+
+.student-exam-single-answer > span {
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.student-exam-answer-btn-card {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 2rem;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 77;
+}
+
+.student-exam-answer-btn-card > button {
+  width: 150px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.student-exam-answer-btn-card > :nth-child(1) {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.student-exam-answer-btn-card > :nth-child(2) {
+  background-color: transparent;
+  color: #ff6600;
+  border: 2px solid #ff6600;
+}
+
+.student-exam-main-second-card {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.student-exam-second-card-time-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.student-exam-second-card-time-card > :nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.student-exam-second-card-time-card > :nth-child(2) {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.student-exam-second-card-time-card > :nth-child(2) > h1 {
+  font-size: 40px;
+}
+
+.student-exam-second-card-time-card > :nth-child(3) {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.student-exam-question-section-data {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.student-exam-question-number-card {
+  width: 100%;
+  height: 70%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  overflow-y: scroll;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.student-exam-question-section-data {
+  display: flex;
+  gap: 1rem;
+}
+.student-exam-question-section-data > p {
+  width: fit-content;
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: grey;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.student-exam-question-number-card > div {
+  width: 100%;
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.student-exam-question-number-card > div > span {
+  padding: 10px;
+  background-color: grey;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+/* e=result section */
+.student-exam-result {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* padding: 20px; */
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}

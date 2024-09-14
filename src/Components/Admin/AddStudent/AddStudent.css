@@ -1,0 +1,213 @@
+.addp-student-main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.add-student-main-container {
+  width: 100%;
+  height: calc(100% - 90px);
+
+  display: flex;
+  /* border: 2px solid blue; */
+  gap: 1rem;
+  padding: 20px;
+}
+
+.add-students-first-card {
+  width: 70%;
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.add-student-excel-first-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-student-excel-first-card > :nth-child(1) {
+  width: 19.5%;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.add-student-excel-first-card > :nth-child(2) {
+  width: 20%;
+  font-size: 17px;
+  font-weight: 700;
+}
+.add-student-excel-first-card > :nth-child(3) {
+  width: 20%;
+  font-size: 17px;
+  font-weight: 700;
+}
+.add-student-excel-first-card > :nth-child(4) {
+  width: 10%;
+  font-size: 17px;
+  font-weight: 700;
+}
+.add-student-excel-first-card > :nth-child(5) {
+  width: 24%;
+  font-size: 17px;
+  font-weight: 700;
+}
+.add-student-excel-first-card > :nth-child(6) {
+  width: 6%;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.add-student-exel-table-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  height: 95%;
+  /* border: 2px solid red; */
+  overflow-y: scroll;
+}
+
+.add-student-exel-table-single-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-student-exel-table-single-card > :nth-child(1) {
+  width: 20%;
+  font-size: 16px;
+
+  color: grey;
+}
+
+.add-student-exel-table-single-card > :nth-child(2) {
+  width: 20%;
+  font-size: 16px;
+  color: grey;
+}
+.add-student-exel-table-single-card > :nth-child(3) {
+  width: 20%;
+  font-size: 16px;
+  color: grey;
+}
+.add-student-exel-table-single-card > :nth-child(4) {
+  width: 10%;
+  font-size: 16px;
+
+  color: grey;
+}
+.add-student-exel-table-single-card > :nth-child(5) {
+  width: 24%;
+  font-size: 16px;
+  color: grey;
+}
+.add-student-exel-table-single-card > :nth-child(6) {
+  width: 5.5%;
+  font-size: 16px;
+  color: grey;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.add-student-exel-table-single-card > :nth-child(6) > :nth-child(1) {
+  cursor: pointer;
+}
+
+.add-student-exel-table-single-card > :nth-child(6) > :nth-child(2) {
+  cursor: pointer;
+}
+
+.add-students-second-card {
+  width: 30%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.add-student-input-inner-card-div {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  gap: 0.7rem;
+  border: 1px solid lightgrey;
+  align-items: center;
+  /* padding: 10px; */
+  border-radius: 10px;
+  padding: 0px 10px;
+}
+
+.add-student-input-inner-card-div > input {
+  width: 95%;
+
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.add-student-btn {
+  width: 100%;
+  height: 40px;
+  background-color: #ff6600;
+
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+}
+
+.add-student-first-btn-card {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  display: flex;
+  gap: 1rem;
+}
+
+.add-student-first-btn-card > button {
+  width: 120px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.add-student-first-btn-card > :nth-child(1) {
+  background-color: transparent;
+  border: 2px solid #ff6600;
+  color: #ff6600;
+}
+
+.add-student-first-btn-card > :nth-child(2) {
+  background-color: #ff6600;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+.add-course-btn {
+  width: 100%;
+  height: 40px;
+  background-color: #ff6600;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
