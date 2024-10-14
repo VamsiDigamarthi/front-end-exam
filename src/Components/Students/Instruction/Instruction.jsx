@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Instruction.css";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { API } from "../../../Core/urls";
+import StudentFeedBack from "./StudentFeedBack/StudentFeedBack";
 const Instruction = () => {
   const { examId } = useParams();
   const location = useLocation();
   const [userEmail, setUserEmail] = useState("");
   const contentRef = useRef(null);
-  const [examNotStarted, setExamNotStarted] = useState(false);
-  const [afterExamCompleted, setafterExamCompleted] = useState(false);
+  const [examNotStarted, setExamNotStarted] = useState(false); // ---
+  const [afterExamCompleted, setafterExamCompleted] = useState(false); // ---
   const [apiDataNotSuufled, setApiDataNotSuufled] = useState(null);
 
   // --------------------------------------------main states-------------------------------
@@ -435,20 +436,20 @@ const Instruction = () => {
     console.log(email);
     console.log(savedAnswers);
     console.log(sectionsWithTotalMarks);
-    // API.post("exam/submit", {
-    //   email: email,
-    //   exmDetails: sectionsWithTotalMarks,
-    //   examId: examId,
-    // })
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     if (document.fullscreenElement) {
-    //       document.exitFullscreen();
-    //     }
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //   });
+    API.post("exam/submit", {
+      email: email,
+      exmDetails: sectionsWithTotalMarks,
+      examId: examId,
+    })
+      .then((res) => {
+        console.log(res.data);
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   useEffect(() => {
@@ -468,8 +469,6 @@ const Instruction = () => {
     console.log(filterAns);
     setCurrectAnsweByApplyColor(filterAns);
   };
-
-  console.log(currectSectionUserAnswer);
 
   const onSubmitted = () => {
     onCompleteExam();
@@ -683,7 +682,7 @@ const Instruction = () => {
       )}
       {examNotStarted && afterExamCompleted && (
         <div className="student-exam-result">
-          <h1>Thank You For Completing The Exam</h1>
+          <StudentFeedBack examId={examId} userEmail={userEmail} />
         </div>
       )}
     </div>

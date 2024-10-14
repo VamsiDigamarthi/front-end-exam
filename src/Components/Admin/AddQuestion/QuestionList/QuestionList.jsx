@@ -16,7 +16,7 @@ const QuestionList = () => {
   }, [dispatch, token]);
   return (
     <div className="question-main-container">
-      <Header name={profile?.name} email={profile.email} />
+      <Header name={profile?.name} email={profile?.email} />
 
       <div className="question-second-main-card">
         <div className="question-main-inner-card">

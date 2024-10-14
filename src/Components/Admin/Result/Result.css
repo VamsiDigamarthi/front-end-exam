@@ -25,6 +25,11 @@
   /* overflow-y: scroll; */
 }
 
+.studenr-n-table {
+  width: 70%;
+  height: 100%;
+}
+
 .result-screen-first-first-card {
   width: 100%;
   display: flex;

@@ -1,0 +1,19 @@
+.home-table-main {
+  display: flex;
+  height: 600px;
+  width: 100%;
+  /* background-color: red; */
+  padding: 0px 40px;
+  gap: 2rem;
+  margin-bottom: 40px;
+}
+
+.home-table-first {
+  width: 70%;
+  height: 100%;
+  display: flex;
+}
+.home-table-second {
+  width: 30%;
+  height: 100%;
+}

@@ -4,6 +4,7 @@
   display: flex;
   gap: 2rem;
   padding: 0px 40px;
+  position: relative;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   /* position: fixed;
   top: 0;
@@ -62,3 +63,19 @@
 .header-second-single-card > span .active {
   color: #ff6600;
 }
+
+.header-icons {
+  display: none;
+}
+
+/* @media (max-width: 768px) {
+  .header-container {
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-icons {
+    display: block;
+    cursor: pointer;
+  }
+ 
+} */

@@ -24,6 +24,7 @@ const AddQuestion = () => {
     topic: "",
     level: "",
   });
+  const [courseNameError, setCourseNameError] = useState({});
   const [onCourseSave, setOnCourseSave] = useState(false);
   const [singleQuestions, setSingleQuestions] = useState({
     question: "",
@@ -162,21 +163,41 @@ const AddQuestion = () => {
     setCourseName({ ...courseName, [e.target.name]: e.target.value });
   };
 
-  const onCourseAddFun = () => {
-    if (!courseName) {
-      alert("Please enter course name");
-      return;
+  const addQuestionValidation = (values) => {
+    const errors = {};
+    if (!values.examId) {
+      errors.examId = "ExamId is required";
     }
-    localStorage.setItem("questionWiseCourseName", JSON.stringify(courseName));
+    if (!values.courseName) {
+      errors.courseName = "Course Name is required";
+    }
+    if (!values.topic) {
+      errors.topic = "Topic is required";
+    }
+    if (!values.level) {
+      errors.level = "Level is required";
+    }
 
-    setOnCourseSave(true);
+    setCourseNameError(errors);
+    return Object.keys(errors).length === 0;
   };
 
-  // console.log(completeQuestion);
+  const onCourseAddFun = () => {
+    if (addQuestionValidation(courseName)) {
+      localStorage.setItem(
+        "questionWiseCourseName",
+        JSON.stringify(courseName)
+      );
+
+      setOnCourseSave(true);
+    }
+  };
+
+  console.log(courseNameError);
 
   return (
     <div className="addp-student-main-card">
-      <Header name={profile?.name} email={profile.email} />
+      <Header name={profile?.name} email={profile?.email} />
 
       <div className="add-student-main-card">
         <ToastContainer
@@ -354,7 +375,11 @@ const AddQuestion = () => {
               gap: "2rem",
             }}
           >
-            <div className="add-question-input-card">
+            <div
+              className={`add-question-input-card ${
+                courseNameError?.examId?.length > 0 && "validation-error"
+              }`}
+            >
               <PiOptionLight size={20} color="grey" />
               <input
                 onChange={onChangeSingleCourseName}
@@ -364,7 +389,11 @@ const AddQuestion = () => {
                 value={courseName.examId}
               />
             </div>
-            <div className="add-question-input-card">
+            <div
+              className={`add-question-input-card ${
+                courseNameError?.courseName?.length > 0 && "validation-error"
+              }`}
+            >
               <PiOptionLight size={20} color="grey" />
               <input
                 onChange={onChangeSingleCourseName}
@@ -374,7 +403,11 @@ const AddQuestion = () => {
                 value={courseName.courseName}
               />
             </div>
-            <div className="add-question-input-card">
+            <div
+              className={`add-question-input-card ${
+                courseNameError?.topic?.length > 0 && "validation-error"
+              }`}
+            >
               <PiOptionLight size={20} color="grey" />
               <input
                 onChange={onChangeSingleCourseName}
@@ -384,7 +417,11 @@ const AddQuestion = () => {
                 value={courseName.topic}
               />
             </div>
-            <div className="add-question-input-card">
+            <div
+              className={`add-question-input-card ${
+                courseNameError?.level?.length > 0 && "validation-error"
+              }`}
+            >
               <PiOptionLight size={20} color="grey" />
               <input
                 onChange={onChangeSingleCourseName}
@@ -394,7 +431,14 @@ const AddQuestion = () => {
                 value={courseName.level}
               />
             </div>
-            <button className="add-question-btn-card" onClick={onCourseAddFun}>
+            <button
+              className="add-question-btn-card"
+              style={{
+                cursor:
+                  Object.keys(courseNameError)?.length > 0 && "not-allowed",
+              }}
+              onClick={onCourseAddFun}
+            >
               Add
             </button>
           </div>

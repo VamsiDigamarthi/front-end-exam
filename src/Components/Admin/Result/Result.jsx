@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Result.css";
-import { BiSearchAlt2 } from "react-icons/bi";
-import { MdRefresh } from "react-icons/md";
 import { FaDownload } from "react-icons/fa";
 import Header from "../../Header/Header";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,7 +46,6 @@ const Result = () => {
   };
 
   const singleResult = (single) => {
-    console.log(single);
     const singleFilter = reResultData?.filter(
       (each) => each._id === single._id
     );
@@ -56,7 +53,7 @@ const Result = () => {
   };
   return (
     <div className="resultp-screen-container">
-      <Header name={profile?.name} email={profile.email} />
+      <Header name={profile?.name} email={profile?.email} />
 
       <div className="result-screen-container">
         <div className="result-screen-first-card">

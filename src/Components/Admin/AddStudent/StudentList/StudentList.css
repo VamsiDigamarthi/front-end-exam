@@ -57,3 +57,8 @@
   width: 6%;
   cursor: pointer;
 }
+
+.student-n-list-card {
+  width: 30%;
+  height: 100%;
+}

@@ -18,10 +18,9 @@ const AddExam = () => {
     setMainTestData,
     profile,
   } = useAddExam();
-  console.log(profile);
   return (
     <div className="addp-exam-container">
-      <Header name={profile?.name} email={profile.email} />
+      <Header name={profile?.name} email={profile?.email} />
       <div className="add-exam-container">
         <div className="test-id-card">
           <div className="test-id-inner-crad">
@@ -110,6 +109,18 @@ const AddExam = () => {
                 </select>
 
                 {/* ))} */}
+              </div>
+              <div className="add-exam-first-form-inner-input-card">
+                <label>Levels</label>
+                <select name="level" onChange={handleInputChange}>
+                  <option disabled hidden selected>
+                    SELECT EXAM LEVEL
+                  </option>
+                  {/* {initiallyStoreAllExamsDetails?.map((exam, key) => ( */}
+                  <option value="Easy">Easy</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Hard">Hard</option>
+                </select>
               </div>
             </div>
           </div>

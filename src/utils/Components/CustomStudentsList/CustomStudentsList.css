@@ -1,0 +1,79 @@
+.c-student-list {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#f1ae82, #fc883a);
+  padding: 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 10px;
+}
+
+.c-student-first-card {
+  width: 100%;
+  height: 25%;
+  background-color: #ffff;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  overflow: hidden;
+}
+
+.c-student-first-card > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.c-student-first-card > div > span {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.c-student-second-card {
+  width: 100%;
+  height: 75%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.c-student-second-first {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.c-student-second-second {
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.c-student-second-single-card {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.c-student-second-single-card > img {
+  width: 50px;
+}
+
+.c-student-second-single-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.c-student-second-single-card > div > h5 {
+  font-size: 17px;
+}

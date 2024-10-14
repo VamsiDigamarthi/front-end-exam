@@ -26,16 +26,15 @@ export const useAddExam = () => {
     purpose: "",
     description: "",
     resultType: "",
+    level: "",
     examsSections: [
       {
         examuniqueId: "",
         examId: "",
         totalMarks: "",
         cutOff: "",
-        // resultType: "",
         courseName: "",
         topic: "",
-        level: "",
       },
     ],
     students: [],
@@ -154,7 +153,7 @@ export const useAddExam = () => {
   // post data
   const handleSubmit = (e) => {
     e.preventDefault();
-    API.post("/admin//add-exams", mainTestData, {
+    API.post("/admin/add-exams", mainTestData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

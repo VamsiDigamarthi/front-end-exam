@@ -147,6 +147,10 @@
   padding: 0px 10px;
 }
 
+.validation-error {
+  border: 2px solid red;
+}
+
 .add-student-input-inner-card-div > input {
   width: 95%;
 

@@ -20,6 +20,7 @@ const AddStudent = () => {
     batchName: "",
     purpose: "",
   });
+  const [batchDetailsError, setBatchDetailsError] = useState({});
   const [batchEnter, setBatchEnter] = useState(false);
   const [studentData, setStudentData] = useState({
     id: "",
@@ -146,16 +147,35 @@ const AddStudent = () => {
     });
   };
 
-  const onBatchCourseSave = () => {
-    localStorage.setItem("batchDetails", JSON.stringify(batchDetails));
-    setBatchEnter(true);
+  const addStudentBatchAddValidation = (values) => {
+    const errors = {};
+    if (!values.course) {
+      errors.course = "Course is required";
+    }
+    if (!values.batchName) {
+      errors.batchName = "Batch Name is required";
+    }
+    if (!values.purpose) {
+      errors.purpose = "Purpose is required";
+    }
+    setBatchDetailsError(errors);
+    return Object.keys(errors).length === 0;
   };
 
-  // console.log(studentDataExel);
+  const onBatchCourseSave = () => {
+    if (addStudentBatchAddValidation(batchDetails)) {
+      localStorage.setItem("batchDetails", JSON.stringify(batchDetails));
+      setBatchEnter(true);
+    } else {
+      console.log("error saving");
+    }
+  };
+
+  console.log(Object.keys(batchDetailsError));
 
   return (
     <div className="addp-student-main-container">
-      <Header name={profile?.name} email={profile.email} />
+      <Header name={profile?.name} email={profile?.email} />
 
       <div className="add-student-main-container">
         <div className="add-students-first-card">
@@ -248,7 +268,11 @@ const AddStudent = () => {
           </div>
         ) : (
           <div className="add-students-second-card">
-            <div className="add-student-input-inner-card-div">
+            <div
+              className={`add-student-input-inner-card-div ${
+                batchDetailsError.course && "validation-error"
+              }`}
+            >
               <FaRegUser size={17} color="grey" />
               <input
                 onChange={onChangeBatchData}
@@ -257,8 +281,13 @@ const AddStudent = () => {
                 name="course"
                 value={batchDetails.course}
               />
+              {/* {batchDetailsError.course && <p>{batchDetailsError.course}</p>} */}
             </div>
-            <div className="add-student-input-inner-card-div">
+            <div
+              className={`add-student-input-inner-card-div ${
+                batchDetailsError.batchName && "validation-error"
+              }`}
+            >
               <FaRegUser size={17} color="grey" />
               <input
                 onChange={onChangeBatchData}
@@ -268,7 +297,11 @@ const AddStudent = () => {
                 value={batchDetails.batchName}
               />
             </div>
-            <div className="add-student-input-inner-card-div">
+            <div
+              className={`add-student-input-inner-card-div ${
+                batchDetailsError.purpose && "validation-error"
+              }`}
+            >
               <FaRegUser size={17} color="grey" />
               <input
                 onChange={onChangeBatchData}
@@ -278,7 +311,14 @@ const AddStudent = () => {
                 value={batchDetails.purpose}
               />
             </div>
-            <button onClick={onBatchCourseSave} className="add-course-btn">
+            <button
+              onClick={onBatchCourseSave}
+              style={{
+                cursor:
+                  Object.keys(batchDetailsError)?.length > 0 && "not-allowed",
+              }}
+              className="add-course-btn"
+            >
               Save
             </button>
           </div>

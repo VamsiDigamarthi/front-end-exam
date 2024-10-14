@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
-
+import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross1 } from "react-icons/rx";
 const Header = ({ name, email }) => {
+  const [onMobileOpen, setOnMobileOpen] = useState(false);
+
   return (
     <div className="header-container new-header">
       <NavLink activeClassName="active" to="/">
@@ -12,10 +15,20 @@ const Header = ({ name, email }) => {
           alt="Logo"
         />
       </NavLink>
-      <div className="header-second-card">
+      {/* <div className="header-icons">
+        {onMobileOpen ? (
+          <RxCross1 onClick={() => setOnMobileOpen(false)} size={30} />
+        ) : (
+          <RxHamburgerMenu onClick={() => setOnMobileOpen(true)} size={30} />
+        )}
+      </div> */}
+      <div
+        // style={{
+        //   position: onMobileOpen && "absolute",
+        // }}
+        className="header-second-card"
+      >
         <div className="header-second-single-card">
-          {/* <span>Dashboard</span>
-          <span>Project</span> */}
           <span>
             <NavLink activeClassName="active" to="/add-students">
               Add Students
@@ -39,6 +52,21 @@ const Header = ({ name, email }) => {
           <span>
             <NavLink activeClassName="active" to="/add-exam">
               Add Exams
+            </NavLink>
+          </span>
+          <span>
+            <NavLink activeClassName="active" to="/results">
+              Results
+            </NavLink>
+          </span>
+          <span>
+            <NavLink activeClassName="active" to="/feedback">
+              FeedBack
+            </NavLink>
+          </span>
+          <span>
+            <NavLink activeClassName="active" to="/student-feedback">
+              Student Feedbacks
             </NavLink>
           </span>
         </div>

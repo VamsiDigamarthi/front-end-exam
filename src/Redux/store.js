@@ -4,6 +4,7 @@ import batchWiseStudent from "./features/BatchWiseStudentData";
 import allExamSection from "./features/allExamSection";
 import resultData from "./features/ResultSection";
 import profile from "./features/profileSlice";
+import todos from "./features/fetchTodo";
 const store = configureStore({
   reducer: {
     tokenWithUserRole: token,
@@ -11,6 +12,7 @@ const store = configureStore({
     allExamSection: allExamSection,
     resultData: resultData,
     profile: profile,
+    todos: todos,
   },
 });
 
