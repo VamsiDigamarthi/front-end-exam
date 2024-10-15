@@ -51,3 +51,10 @@
 .home-first-left > :nth-child(2) > *:nth-child(4) {
   background-color: #f3c233;
 }
+
+@media (max-width: 768px) {
+  .home-first-left {
+    width: 100%;
+    height: fit-content;
+  }
+}

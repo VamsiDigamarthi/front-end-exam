@@ -27,6 +27,15 @@
   overflow: hidden;
 }
 
+@media (max-width: 767px) {
+  .App {
+    overflow-y: scroll;
+  }
+  .second-app {
+    overflow-y: scroll;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 5px; /* Width of the scrollbar */
   height: 5px;

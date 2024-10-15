@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .c-student-first-card > div {
@@ -76,4 +76,10 @@
 
 .c-student-second-single-card > div > h5 {
   font-size: 17px;
+}
+
+@media (max-width: 768px) {
+  .c-student-list {
+    padding: 15px;
+  }
 }

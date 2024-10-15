@@ -54,12 +54,12 @@ const Login = () => {
       </div>
       {error && <p className="error-message">{error}</p>}
       <button onClick={onSubmitedLogin}>Login</button>
-      <p>
+      {/* <p>
         Forgot UserName/Password <span>Click Here</span>
       </p>
       <p>
         Do Not have Account <span>Register</span>
-      </p>
+      </p> */}
     </div>
   );
 };

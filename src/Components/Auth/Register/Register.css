@@ -32,3 +32,17 @@
   height: 100%;
   /* border: 2px solid red; */
 }
+
+@media (max-width: 767px) {
+  .register-inner-card {
+    width: 95%;
+    height: 95%;
+  }
+  .register-inner-first-card {
+    display: none;
+  }
+  .register-inner-second-card {
+    width: 100%;
+    padding: 10px;
+  }
+}

@@ -4,6 +4,7 @@ import { FaDownload } from "react-icons/fa";
 import Header from "../../Header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { adminResultData } from "../../../Redux/features/ResultSection";
+import * as XLSX from "xlsx";
 const Result = () => {
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profile);
@@ -51,51 +52,103 @@ const Result = () => {
     );
     setInitiallyData(singleFilter?.[0]);
   };
+
+  const downloadExcel = (batch) => {
+    console.log(batch);
+
+    // Prepare the data for the Excel sheet
+    const ws_data = [
+      ["Batch Name", batch?.batchName],
+      ["Course", batch?.courseName],
+      ["Total Students", batch?.students?.length],
+      [], // Add empty row for separation
+      // Column names for students
+      ["Name", "Email"],
+    ];
+
+    // Add each student to the ws_data array
+    batch?.students?.forEach((student) => {
+      ws_data.push([
+        student.name || "N/A", // Default value if undefined
+        student.email || "N/A", // Default value if undefined
+      ]);
+    });
+
+    // Add empty row for separation between students and exams
+    ws_data.push([]);
+
+    // Column names for exam sections
+    ws_data.push(["Course Name", "Cut Off", "Exam ID", "Topic", "Total Marks"]);
+
+    // Add each exam section to the ws_data array
+    batch?.examsSections?.forEach((examSection) => {
+      ws_data.push([
+        examSection?.courseName || "N/A", // Default value if undefined
+        examSection?.cutOff || "N/A", // Default value if undefined
+        examSection?._id || "N/A", // Default value if undefined
+        examSection?.topic || "N/A", // Default value if undefined
+        examSection?.totalMarks || "N/A", // Default value if undefined
+      ]);
+    });
+
+    // Create a worksheet from the ws_data
+    const worksheet = XLSX.utils.aoa_to_sheet(ws_data);
+
+    // Create a workbook and add the worksheet
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Batch Details");
+
+    // Export the file
+    XLSX.writeFile(workbook, `${batch.batchName}_Details.xlsx`);
+  };
+
   return (
     <div className="resultp-screen-container">
       <Header name={profile?.name} email={profile?.email} />
 
       <div className="result-screen-container">
-        <div className="result-screen-first-card">
-          <div className="result-screen-first-first-card">
-            <h3>Results</h3>
-            {/* <div>
+        <div className="result-screen-container-m">
+          <div className="result-screen-first-card">
+            <div className="result-screen-first-first-card">
+              <h3>Results</h3>
+              {/* <div>
               <div>
                 <input type="text" placeholder="search here" />
                 <BiSearchAlt2 size={25} />
               </div>
               <MdRefresh size={25} />
             </div> */}
-          </div>
-          <div className="result-screen-first-second-card">
-            <span>Test ID</span>
-            <span>Course</span>
-            <span>Date</span>
-            <span>Time</span>
-            <span>Purpose</span>
-            <span>Total Students</span>
-            <span>Passedout</span>
-            <span>Action</span>
-          </div>
-          <div className="result-screen-first-table-body-card">
-            {reResultData?.map((each) => (
-              <div
-                onClick={() => singleResult(each)}
-                className="result-screen-first-table-single-card"
-              >
-                <span>{each.testId}</span>
-                <span>{each.courseName}</span>
-                <span>{each.date}</span>
-                <span>{each.time}</span>
-                <span>{each.purpose}</span>
-                <span>{each.students?.length}</span>
-                <span>{onCalcuatePassoutFun(each)}</span>
-                {/* <span>2</span> */}
-                <span>
-                  <FaDownload />
-                </span>
-              </div>
-            ))}
+            </div>
+            <div className="result-screen-first-second-card">
+              <span>Test ID</span>
+              <span>Course</span>
+              <span>Date</span>
+              <span>Time</span>
+              <span>Purpose</span>
+              <span>Total Students</span>
+              <span>Passedout</span>
+              <span>Action</span>
+            </div>
+            <div className="result-screen-first-table-body-card">
+              {reResultData?.map((each) => (
+                <div
+                  onClick={() => singleResult(each)}
+                  className="result-screen-first-table-single-card"
+                >
+                  <span>{each.testId}</span>
+                  <span>{each.courseName}</span>
+                  <span>{each.date}</span>
+                  <span>{each.time}</span>
+                  <span>{each.purpose}</span>
+                  <span>{each.students?.length}</span>
+                  <span>{onCalcuatePassoutFun(each)}</span>
+                  {/* <span>2</span> */}
+                  <span>
+                    <FaDownload onClick={() => downloadExcel(each)} />
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className="result-screen-second-card">

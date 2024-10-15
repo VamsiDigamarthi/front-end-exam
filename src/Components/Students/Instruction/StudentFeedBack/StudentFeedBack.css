@@ -71,3 +71,30 @@
   font-size: 17px;
   font-weight: 500;
 }
+
+.student-already-feedbacks {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .student-feed-back-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .student-feed-back-main > h1 {
+    font-size: 18px;
+  }
+  .student-feed-back-main > p {
+    width: 95%;
+  }
+  .stuent-feed-back-question-display-main {
+    margin: 0px 20px;
+  }
+}

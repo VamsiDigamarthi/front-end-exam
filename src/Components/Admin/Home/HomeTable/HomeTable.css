@@ -17,3 +17,17 @@
   width: 30%;
   height: 100%;
 }
+
+@media (max-width: 767px) {
+  .home-table-main {
+    flex-direction: column;
+    gap: 1rem;
+    /* background-color: red; */
+  }
+  .home-table-second {
+    width: 100%;
+  }
+  .home-table-first {
+    width: 100%;
+  }
+}

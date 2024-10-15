@@ -171,43 +171,43 @@ const AddStudent = () => {
     }
   };
 
-  console.log(Object.keys(batchDetailsError));
-
   return (
     <div className="addp-student-main-container">
       <Header name={profile?.name} email={profile?.email} />
 
       <div className="add-student-main-container">
-        <div className="add-students-first-card">
-          <div className="add-student-excel-first-card">
-            <span>ID</span>
-            <span>Name</span>
-            <span>Email</span>
-            <span>Password</span>
-            <span>College Name</span>
-            <span>Action</span>
-          </div>
-          <div className="add-student-exel-table-body">
-            {studentDataExel.map((each, index) => (
-              <div className="add-student-exel-table-single-card" key={index}>
-                <span>{each.id}</span>
-                <span>{each.name}</span>
-                <span>{each.email}</span>
-                <span>{each.password}</span>
-                <span>{each.collegeName}</span>
-                <span>
-                  <CiEdit size={20} onClick={() => onEditStudent(index)} />
-                  <MdOutlineDelete
-                    onClick={() => handleDeleteUser(index)}
-                    size={20}
-                  />
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="add-student-first-btn-card">
-            <button onClick={onSaveDataFromLocalStorage}>Save Data</button>
-            <button onClick={onPostStudentData}>Post Data</button>
+        <div className="add-studnet-main-container-n-card">
+          <div className="add-students-first-card">
+            <div className="add-student-excel-first-card">
+              <span>ID</span>
+              <span>Name</span>
+              <span>Email</span>
+              <span>Password</span>
+              <span>College Name</span>
+              <span>Action</span>
+            </div>
+            <div className="add-student-exel-table-body">
+              {studentDataExel.map((each, index) => (
+                <div className="add-student-exel-table-single-card" key={index}>
+                  <span>{each.id}</span>
+                  <span>{each.name}</span>
+                  <span>{each.email}</span>
+                  <span>{each.password}</span>
+                  <span>{each.collegeName}</span>
+                  <span>
+                    <CiEdit size={20} onClick={() => onEditStudent(index)} />
+                    <MdOutlineDelete
+                      onClick={() => handleDeleteUser(index)}
+                      size={20}
+                    />
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="add-student-first-btn-card">
+              <button onClick={onSaveDataFromLocalStorage}>Save Data</button>
+              <button onClick={onPostStudentData}>Post Data</button>
+            </div>
           </div>
         </div>
         {batchEnter ? (

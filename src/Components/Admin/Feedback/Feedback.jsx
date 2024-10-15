@@ -23,11 +23,13 @@ const Feedback = () => {
     <div className="feedback">
       <Header name={profile?.name} email={profile?.email} />
       <div className="feedback-main">
-        <div className="feebdack-left">
-          <FeedbackTable
-            feedback={feedback}
-            onPostFeedbackQuestions={onPostFeedbackQuestions}
-          />
+        <div className="feedback-main-asd">
+          <div className="feebdack-left">
+            <FeedbackTable
+              feedback={feedback}
+              onPostFeedbackQuestions={onPostFeedbackQuestions}
+            />
+          </div>
         </div>
         <div className="feedback-right">
           {showFeedbackForm ? (

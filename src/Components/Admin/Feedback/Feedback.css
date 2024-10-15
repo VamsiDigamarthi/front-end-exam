@@ -12,8 +12,13 @@
   padding: 20px;
 }
 
-.feebdack-left {
+.feedback-main-asd {
   width: 70%;
+  height: 100%;
+}
+
+.feebdack-left {
+  width: 100%;
   height: 100%;
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -31,4 +36,27 @@
   flex-direction: column;
   gap: 1rem;
   padding: 40px;
+}
+
+@media (max-width: 767px) {
+  .feedback-main {
+    flex-direction: column;
+    gap: 1;
+    height: auto;
+    overflow-y: visible;
+  }
+  .feedback-main-asd {
+    width: 100%;
+    height: 70vh;
+    /* background-color: blue; */
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .feebdack-left {
+    width: 1000px;
+  }
+  .feedback-right {
+    width: 100%;
+    height: fit-content;
+  }
 }

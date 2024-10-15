@@ -13,14 +13,19 @@
   gap: 1rem;
 }
 
-.add-question-first-card {
+.add-question-edfgb {
   width: 70%;
+  height: 100%;
+}
+.add-question-first-card {
+  width: 100%;
   padding: 10px;
   display: flex;
   flex-direction: column;
   position: relative;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   overflow-x: scroll;
+  height: 100%;
 }
 
 .add-question-multi-btn-card {
@@ -214,4 +219,27 @@
   outline: none;
   color: #fff;
   border-radius: 10px;
+}
+
+@media (max-width: 767px) {
+  .addp-student-main-card {
+    height: auto;
+  }
+  .add-student-main-card {
+    flex-direction: column;
+    height: auto;
+    overflow-y: visible;
+    gap: 2rem;
+  }
+  .add-question-edfgb {
+    height: 90vh;
+    /* background-color: blue; */
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .add-question-second-card {
+    width: 100%;
+    height: auto; /* Let it adjust to the content */
+    min-height: 300px;
+  }
 }

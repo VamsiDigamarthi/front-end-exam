@@ -15,19 +15,15 @@ const Header = ({ name, email }) => {
           alt="Logo"
         />
       </NavLink>
-      {/* <div className="header-icons">
+      <div className="header-icons">
         {onMobileOpen ? (
           <RxCross1 onClick={() => setOnMobileOpen(false)} size={30} />
         ) : (
           <RxHamburgerMenu onClick={() => setOnMobileOpen(true)} size={30} />
         )}
-      </div> */}
-      <div
-        // style={{
-        //   position: onMobileOpen && "absolute",
-        // }}
-        className="header-second-card"
-      >
+      </div>
+      {/* desk apps */}
+      <div className="header-second-card">
         <div className="header-second-single-card">
           <span>
             <NavLink activeClassName="active" to="/add-students">
@@ -75,6 +71,83 @@ const Header = ({ name, email }) => {
           <span>{email}</span>
         </div>
       </div>
+      {/* mobile views */}
+      {onMobileOpen && (
+        <div className="mobile-view-card">
+          <span>
+            <NavLink
+              activeClassName="active "
+              className="new-cls"
+              to="/add-students"
+            >
+              Add Students
+            </NavLink>
+          </span>
+          <span>
+            <NavLink
+              activeClassName="active"
+              className="new-cls"
+              to="/students-list"
+            >
+              Students-List
+            </NavLink>
+          </span>
+          <span>
+            <NavLink
+              activeClassName="active"
+              className="new-cls"
+              to="/add-question"
+            >
+              Add Question
+            </NavLink>
+          </span>
+          <span>
+            <NavLink
+              activeClassName="active"
+              className="new-cls"
+              to="/question-list"
+            >
+              Question-list
+            </NavLink>
+          </span>
+          <span>
+            <NavLink
+              activeClassName="active"
+              className="new-cls"
+              to="/add-exam"
+            >
+              Add Exams
+            </NavLink>
+          </span>
+          <span>
+            <NavLink activeClassName="active" className="new-cls" to="/results">
+              Results
+            </NavLink>
+          </span>
+          <span>
+            <NavLink
+              activeClassName="active"
+              className="new-cls"
+              to="/feedback"
+            >
+              FeedBack
+            </NavLink>
+          </span>
+          <span>
+            <NavLink
+              activeClassName="active"
+              className="new-cls"
+              to="/student-feedback"
+            >
+              Student Feedbacks
+            </NavLink>
+          </span>
+          <div className="mobile-view-first">
+            <span>{name}</span>
+            <span>{email}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

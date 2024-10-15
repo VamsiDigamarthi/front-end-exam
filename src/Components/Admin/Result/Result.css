@@ -14,11 +14,17 @@
   padding: 20px;
 }
 
-.result-screen-first-card {
+.result-screen-container-m {
   width: 70%;
-  padding: 20px;
   height: 100%;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.result-screen-first-card {
+  width: 100%;
+  padding: 20px;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -222,4 +228,40 @@
 .result-screen-second-second-second-card > div > img {
   width: 50px;
   height: 50px;
+}
+
+@media (max-width: 768px) {
+  .resultp-screen-container {
+    height: auto; /* Allow the container to adapt based on its content */
+  }
+  .result-screen-container {
+    flex-direction: column;
+    height: auto;
+    overflow-y: visible;
+    /* background-color: red; */
+  }
+
+  .result-screen-container-m {
+    height: 90vh;
+    /* background-color: blue; */
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .result-screen-first-card {
+    width: 1000px;
+    height: auto; /* Let it adjust to the content */
+    min-height: 100vh; /* Ensure minimum height is set */
+  }
+
+  .result-screen-second-card {
+    width: 100%;
+    height: auto; /* Let it adjust to the content */
+    min-height: 300px; /* Ensure minimum height is set */
+  }
+
+  .result-screen-second-second-second-card {
+    height: auto;
+    overflow-y: auto; /* Enable scrolling if content exceeds height */
+  }
 }

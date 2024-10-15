@@ -193,8 +193,6 @@ const AddQuestion = () => {
     }
   };
 
-  console.log(courseNameError);
-
   return (
     <div className="addp-student-main-card">
       <Header name={profile?.name} email={profile?.email} />
@@ -213,46 +211,48 @@ const AddQuestion = () => {
           theme="light"
           id="tosts"
         />
-        <div className="add-question-first-card">
-          <div className="add-question-table-header">
-            <span>Action</span>
-            <span>QuestionType</span>
-            <span>Question</span>
-            <span>Option1</span>
-            <span>Option2</span>
-            <span>Option3</span>
-            <span>Option4</span>
-            <span>CorrectAnswer</span>
-            <span>DefaultMarks</span>
-            <span>DefaultTimeToSolve</span>
-            <span>Difficulty_Level</span>
-          </div>
-          <div className="add-question-table-body-card">
-            {completeQuestion?.map((each, index) => (
-              <div ref={qu} className="add-questiontable-single-card">
-                <span>
-                  <CiEdit size={20} onClick={() => onEditQuestion(index)} />
-                  <MdOutlineDelete
-                    onClick={() => handleDeleteQuestion(each.question)}
-                    size={20}
-                  />
-                </span>
-                <span>{each.QuestionType}</span>
-                <span>{each.question}</span>
-                <span>{each.option1}</span>
-                <span>{each.option2}</span>
-                <span>{each.option3}</span>
-                <span>{each.option4}</span>
-                <span>{each.CorrectAnswer}</span>
-                <span>{each.DefaultMarks}</span>
-                <span>{each.DefaultTimeToSolve}</span>
-                <span>{each.Difficulty_Level}</span>
-              </div>
-            ))}
-          </div>
-          <div className="add-question-multi-btn-card">
-            <button onClick={onSaveDataFromLocalStorage}>Save</button>
-            <button onClick={onSubmitedPost}>Post</button>
+        <div className="add-question-edfgb">
+          <div className="add-question-first-card">
+            <div className="add-question-table-header">
+              <span>Action</span>
+              <span>QuestionType</span>
+              <span>Question</span>
+              <span>Option1</span>
+              <span>Option2</span>
+              <span>Option3</span>
+              <span>Option4</span>
+              <span>CorrectAnswer</span>
+              <span>DefaultMarks</span>
+              <span>DefaultTimeToSolve</span>
+              <span>Difficulty_Level</span>
+            </div>
+            <div className="add-question-table-body-card">
+              {completeQuestion?.map((each, index) => (
+                <div ref={qu} className="add-questiontable-single-card">
+                  <span>
+                    <CiEdit size={20} onClick={() => onEditQuestion(index)} />
+                    <MdOutlineDelete
+                      onClick={() => handleDeleteQuestion(each.question)}
+                      size={20}
+                    />
+                  </span>
+                  <span>{each.QuestionType}</span>
+                  <span>{each.question}</span>
+                  <span>{each.option1}</span>
+                  <span>{each.option2}</span>
+                  <span>{each.option3}</span>
+                  <span>{each.option4}</span>
+                  <span>{each.CorrectAnswer}</span>
+                  <span>{each.DefaultMarks}</span>
+                  <span>{each.DefaultTimeToSolve}</span>
+                  <span>{each.Difficulty_Level}</span>
+                </div>
+              ))}
+            </div>
+            <div className="add-question-multi-btn-card">
+              <button onClick={onSaveDataFromLocalStorage}>Save</button>
+              <button onClick={onSubmitedPost}>Post</button>
+            </div>
           </div>
         </div>
         {onCourseSave ? (

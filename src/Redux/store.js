@@ -5,6 +5,7 @@ import allExamSection from "./features/allExamSection";
 import resultData from "./features/ResultSection";
 import profile from "./features/profileSlice";
 import todos from "./features/fetchTodo";
+import studentFeedbackGiveAfter from "./features/adminFetchFeedbackAfterStudentGive";
 const store = configureStore({
   reducer: {
     tokenWithUserRole: token,
@@ -13,6 +14,7 @@ const store = configureStore({
     resultData: resultData,
     profile: profile,
     todos: todos,
+    adminStudentFeedbacks: studentFeedbackGiveAfter,
   },
 });
 
