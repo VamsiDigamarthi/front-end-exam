@@ -17,7 +17,11 @@ const AddExam = () => {
     handleSubmit,
     setMainTestData,
     profile,
+    errors,
   } = useAddExam();
+  console.log(mainTestData?.examsSections?.[0]?.examuniqueId);
+  console.log(mainTestData);
+  console.log(errors);
   return (
     <div className="addp-exam-container">
       <Header name={profile?.name} email={profile?.email} />
@@ -33,7 +37,11 @@ const AddExam = () => {
             <div className="add-exam-first-form-inner-card">
               <div className="add-exam-first-form-inner-input-card">
                 <label>Batch Name</label>
-                <select name="batchName" onChange={onBatchNameChange}>
+                <select
+                  id={`${errors?.courseName && "validation-error"}`}
+                  name="batchName"
+                  onChange={onBatchNameChange}
+                >
                   <option disabled hidden selected>
                     SELECT BATCH NAME
                   </option>
@@ -47,6 +55,7 @@ const AddExam = () => {
               <div className="add-exam-first-form-inner-input-card">
                 <label>Course</label>
                 <input
+                  id={`${errors?.Course && "validation-error"}`}
                   type=""
                   value={mainTestData.courseName}
                   placeholder="Course"
@@ -57,6 +66,7 @@ const AddExam = () => {
                 <label>Passkey</label>
                 <input
                   name="passKey"
+                  id={`${errors?.passKey && "validation-error"}`}
                   value={mainTestData.passKey}
                   onChange={handleInputChange}
                   type="text"
@@ -73,11 +83,13 @@ const AddExam = () => {
                   onChange={handleInputChange}
                   placeholder="Enter Purpose"
                   type="text"
+                  id={`${errors?.purpose && "validation-error"}`}
                 />
               </div>
               <div className="add-exam-first-form-inner-input-card">
                 <label>Date</label>
                 <input
+                  id={`${errors?.date && "validation-error"}`}
                   name="date"
                   value={mainTestData.date}
                   onChange={handleInputChange}
@@ -93,13 +105,18 @@ const AddExam = () => {
                   name="time"
                   type="time"
                   placeholder="Passkey"
+                  id={`${errors?.passKey && "validation-error"}`}
                 />
               </div>
             </div>
             <div className="add-exam-first-form-inner-card">
               <div className="add-exam-first-form-inner-input-card">
                 <label>ResultType</label>
-                <select name="resultType" onChange={handleInputChange}>
+                <select
+                  id={`${errors?.resultType && "validation-error"}`}
+                  name="resultType"
+                  onChange={handleInputChange}
+                >
                   <option disabled hidden selected>
                     SELECT RESULT TYPE
                   </option>
@@ -112,7 +129,11 @@ const AddExam = () => {
               </div>
               <div className="add-exam-first-form-inner-input-card">
                 <label>Levels</label>
-                <select name="level" onChange={handleInputChange}>
+                <select
+                  id={`${errors?.level && "validation-error"}`}
+                  name="level"
+                  onChange={handleInputChange}
+                >
                   <option disabled hidden selected>
                     SELECT EXAM LEVEL
                   </option>
@@ -148,7 +169,15 @@ const AddExam = () => {
             ></textarea>
           </div>
           <div className="add-exam-upload-btn-card">
-            <button onClick={handleSubmit}>Upload </button>
+            <button
+              onClick={handleSubmit}
+              disabled={
+                mainTestData?.examsSections?.[0]?.examuniqueId === undefined &&
+                mainTestData?.examsSections?.[0]?.examuniqueId?.length <= 0
+              }
+            >
+              Upload{" "}
+            </button>
             <button onClick={() => setMainTestData({})}>Clear</button>
           </div>
         </div>

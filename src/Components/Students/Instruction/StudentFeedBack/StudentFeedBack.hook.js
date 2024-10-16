@@ -20,7 +20,7 @@ export const useStudentFeedBackHook = ({ examId, userEmail }) => {
   };
 
   useEffect(() => {
-    firstCheckFeedBackPostOrNot();
+    // firstCheckFeedBackPostOrNot();
     API.get(`/feedback/${examId}`)
       .then((res) => {
         setStoreFeedBack(res.data);

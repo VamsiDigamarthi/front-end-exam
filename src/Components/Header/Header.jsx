@@ -3,8 +3,10 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
+import { useSelector } from "react-redux";
 const Header = ({ name, email }) => {
   const [onMobileOpen, setOnMobileOpen] = useState(false);
+  const { role } = useSelector((state) => state?.tokenWithUserRole);
 
   return (
     <div className="header-container new-header">
@@ -25,46 +27,74 @@ const Header = ({ name, email }) => {
       {/* desk apps */}
       <div className="header-second-card">
         <div className="header-second-single-card">
-          <span>
-            <NavLink activeClassName="active" to="/add-students">
-              Add Students
-            </NavLink>
-          </span>
-          <span>
-            <NavLink activeClassName="active" to="/students-list">
-              Students-List
-            </NavLink>
-          </span>
-          <span>
-            <NavLink activeClassName="active" to="/add-question">
-              Add Question
-            </NavLink>
-          </span>
-          <span>
-            <NavLink activeClassName="active" to="/question-list">
-              Question-list
-            </NavLink>
-          </span>
-          <span>
-            <NavLink activeClassName="active" to="/add-exam">
-              Add Exams
-            </NavLink>
-          </span>
-          <span>
-            <NavLink activeClassName="active" to="/results">
-              Results
-            </NavLink>
-          </span>
-          <span>
-            <NavLink activeClassName="active" to="/feedback">
-              FeedBack
-            </NavLink>
-          </span>
-          <span>
-            <NavLink activeClassName="active" to="/student-feedback">
-              Student Feedbacks
-            </NavLink>
-          </span>
+          {role === "admin" && (
+            <>
+              <span>
+                <NavLink activeClassName="active" to="/add-students">
+                  Add Students
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/students-list">
+                  Students-List
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/add-question">
+                  Add Question
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/question-list">
+                  Question-list
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/add-exam">
+                  Add Exams
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/results">
+                  Results
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/feedback">
+                  FeedBack
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/student-feedback">
+                  Student Feedbacks
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/materials">
+                  Add Material
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/all-materials">
+                  All Material
+                </NavLink>
+              </span>
+            </>
+          )}
+          {role === "student" && (
+            <>
+              <span>
+                <NavLink activeClassName="active" to="/all-materials">
+                  All Material
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/quize">
+                  Quize
+                </NavLink>
+              </span>
+            </>
+          )}
         </div>
         <div className="header-second-card-second-card">
           <span>{name}</span>
@@ -74,74 +104,110 @@ const Header = ({ name, email }) => {
       {/* mobile views */}
       {onMobileOpen && (
         <div className="mobile-view-card">
-          <span>
-            <NavLink
-              activeClassName="active "
-              className="new-cls"
-              to="/add-students"
-            >
-              Add Students
-            </NavLink>
-          </span>
-          <span>
-            <NavLink
-              activeClassName="active"
-              className="new-cls"
-              to="/students-list"
-            >
-              Students-List
-            </NavLink>
-          </span>
-          <span>
-            <NavLink
-              activeClassName="active"
-              className="new-cls"
-              to="/add-question"
-            >
-              Add Question
-            </NavLink>
-          </span>
-          <span>
-            <NavLink
-              activeClassName="active"
-              className="new-cls"
-              to="/question-list"
-            >
-              Question-list
-            </NavLink>
-          </span>
-          <span>
-            <NavLink
-              activeClassName="active"
-              className="new-cls"
-              to="/add-exam"
-            >
-              Add Exams
-            </NavLink>
-          </span>
-          <span>
-            <NavLink activeClassName="active" className="new-cls" to="/results">
-              Results
-            </NavLink>
-          </span>
-          <span>
-            <NavLink
-              activeClassName="active"
-              className="new-cls"
-              to="/feedback"
-            >
-              FeedBack
-            </NavLink>
-          </span>
-          <span>
-            <NavLink
-              activeClassName="active"
-              className="new-cls"
-              to="/student-feedback"
-            >
-              Student Feedbacks
-            </NavLink>
-          </span>
+          {role === "admin" && (
+            <>
+              <span>
+                <NavLink
+                  activeClassName="active "
+                  className="new-cls"
+                  to="/add-students"
+                >
+                  Add Students
+                </NavLink>
+              </span>
+              <span>
+                <NavLink
+                  activeClassName="active"
+                  className="new-cls"
+                  to="/students-list"
+                >
+                  Students-List
+                </NavLink>
+              </span>
+              <span>
+                <NavLink
+                  activeClassName="active"
+                  className="new-cls"
+                  to="/add-question"
+                >
+                  Add Question
+                </NavLink>
+              </span>
+              <span>
+                <NavLink
+                  activeClassName="active"
+                  className="new-cls"
+                  to="/question-list"
+                >
+                  Question-list
+                </NavLink>
+              </span>
+              <span>
+                <NavLink
+                  activeClassName="active"
+                  className="new-cls"
+                  to="/add-exam"
+                >
+                  Add Exams
+                </NavLink>
+              </span>
+              <span>
+                <NavLink
+                  activeClassName="active"
+                  className="new-cls"
+                  to="/results"
+                >
+                  Results
+                </NavLink>
+              </span>
+              <span>
+                <NavLink
+                  activeClassName="active"
+                  className="new-cls"
+                  to="/feedback"
+                >
+                  FeedBack
+                </NavLink>
+              </span>
+              <span>
+                <NavLink
+                  activeClassName="active"
+                  className="new-cls"
+                  to="/student-feedback"
+                >
+                  Student Feedbacks
+                </NavLink>
+              </span>
+              <span>
+                <NavLink
+                  className="new-cls"
+                  activeClassName="active"
+                  to="/materials"
+                >
+                  Add Material
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/all-materials">
+                  All Material
+                </NavLink>
+              </span>
+            </>
+          )}
+          {role === "student" && (
+            <>
+              <span>
+                <NavLink activeClassName="active" to="/all-materials">
+                  All Material
+                </NavLink>
+              </span>
+              <span>
+                <NavLink activeClassName="active" to="/quize">
+                  Quize
+                </NavLink>
+              </span>
+            </>
+          )}
           <div className="mobile-view-first">
             <span>{name}</span>
             <span>{email}</span>

@@ -22,10 +22,17 @@ import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import Home from "./Components/Admin/Home/Home";
 import Feedback from "./Components/Admin/Feedback/Feedback";
 import StudentFeedBakcs from "./Components/Admin/Feedback/Components/StudentFeedBacks/StudentFeedBakcs";
+import Material from "./Components/Admin/Material/Material";
+import AllMaterials from "./Components/Admin/Material/Components/AllMaterials/AllMaterials";
+import StudentMaterial from "./Components/Students/StudentMaterial/StudentMaterial";
+import Quize from "./Components/Students/Quize/Quize";
 
 function App() {
-  const { token } = useSelector((state) => state?.tokenWithUserRole);
+  const { token, role } = useSelector((state) => state?.tokenWithUserRole);
   const dispatch = useDispatch();
+
+  // const
+  console.log(token);
 
   useEffect(() => {
     dispatch(onProfileSection({ token }));
@@ -42,16 +49,137 @@ function App() {
 
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
-            <Route path="/add-students" element={<AddStudent />} />
-            <Route path="/students-list" element={<StudentList />} />
-            <Route path="/add-question" element={<AddQuestion />} />
-            <Route path="/question-list" element={<QuestionList />} />
-            <Route path="/add-exam" element={<AddExam />} />
-            <Route path="/exam-list" element={<ExamList />} />
-            <Route path="/results" element={<Result />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/feedback" element={<Feedback />} />
-            <Route path="/student-feedback" element={<StudentFeedBakcs />} />
+            <Route
+              path="/add-students"
+              element={
+                role === "admin" ? (
+                  <AddStudent />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/students-list"
+              element={
+                role === "admin" ? (
+                  <StudentList />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/add-question"
+              element={
+                role === "admin" ? (
+                  <AddQuestion />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/question-list"
+              element={
+                role === "admin" ? (
+                  <QuestionList />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/add-exam"
+              element={
+                role === "admin" ? (
+                  <AddExam />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/exam-list"
+              element={
+                role === "admin" ? (
+                  <ExamList />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/results"
+              element={
+                role === "admin" ? (
+                  <Result />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/"
+              element={
+                role === "admin" ? (
+                  <Home />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/feedback"
+              element={
+                role === "admin" ? (
+                  <Feedback />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/materials"
+              element={
+                role === "admin" ? (
+                  <Material />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/all-materials"
+              element={
+                role === "admin" ? (
+                  <AllMaterials />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            <Route
+              path="/student-feedback"
+              element={
+                role === "admin" ? (
+                  <StudentFeedBakcs />
+                ) : (
+                  <Navigate to="/student-materials" />
+                )
+              }
+            />
+            {/* students routes */}
+            <Route
+              path="/student-materials"
+              element={
+                role === "student" ? <StudentMaterial /> : <Navigate to="/" />
+              }
+            />
+            <Route
+              path="/quize"
+              element={role === "student" ? <Quize /> : <Navigate to="/" />}
+            />
           </Route>
 
           {/* Default Route */}

@@ -15,7 +15,11 @@ export const loginUser = createAsyncThunk(
       const response = await API.post("/auth/login", userData);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("role", response.data.role);
-      navigate("/");
+      if (response.data.role === "admin") {
+        navigate("/");
+      } else {
+        navigate("/student-materials");
+      }
       console.log(response.data);
       return response.data;
     } catch (err) {

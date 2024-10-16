@@ -196,6 +196,12 @@
   border-radius: 10px;
   padding: 5px 10px;
 }
+.add-question-input-card > select {
+  border: none;
+  outline: none;
+  width: 90%;
+  height: 100%;
+}
 
 .validation-error {
   border: 2px solid red;

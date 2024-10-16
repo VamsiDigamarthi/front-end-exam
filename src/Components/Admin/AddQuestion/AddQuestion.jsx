@@ -23,6 +23,7 @@ const AddQuestion = () => {
     examId: "",
     topic: "",
     level: "",
+    examType: "",
   });
   const [courseNameError, setCourseNameError] = useState({});
   const [onCourseSave, setOnCourseSave] = useState(false);
@@ -375,6 +376,24 @@ const AddQuestion = () => {
               gap: "2rem",
             }}
           >
+            <div
+              className={`add-question-input-card ${
+                courseNameError?.courseName?.length > 0 && "validation-error"
+              }`}
+            >
+              <PiOptionLight size={20} color="grey" />
+              <select
+                name="examType"
+                value={courseName.examType}
+                onChange={onChangeSingleCourseName}
+              >
+                <option value="" selected hidden disabled>
+                  SELECT EXAM TYPE
+                </option>
+                <option value="exam">Exam</option>
+                <option value="quize">Quize</option>
+              </select>
+            </div>
             <div
               className={`add-question-input-card ${
                 courseNameError?.examId?.length > 0 && "validation-error"

@@ -7,6 +7,7 @@ const Instruction = () => {
   const { examId } = useParams();
   const location = useLocation();
   const [userEmail, setUserEmail] = useState("");
+  const [password, setPassword] = useState("");
   const contentRef = useRef(null);
   const [examNotStarted, setExamNotStarted] = useState(false); // ---
   const [afterExamCompleted, setafterExamCompleted] = useState(false); // ---
@@ -58,6 +59,10 @@ const Instruction = () => {
 
   const onEmailChange = (e) => {
     setUserEmail(e.target.value);
+  };
+
+  const onPasswordChange = (e) => {
+    setPassword(e.target.value);
   };
 
   const handleFullScreen = async () => {
@@ -116,6 +121,7 @@ const Instruction = () => {
     API.post("/exam/fetch-examDetails", {
       ...exmaDataThroughtPath,
       email: userEmail,
+      password: password,
     })
       .then((res) => {
         const examDate = res?.data?.sections?.[0]?.date; // Exam date from server
@@ -504,6 +510,11 @@ const Instruction = () => {
               onChange={onEmailChange}
               type="text"
               placeholder="Enter Your Email ID"
+            />
+            <input
+              onChange={onPasswordChange}
+              type="text"
+              placeholder="Enter Your Password"
             />
             <button
               style={{

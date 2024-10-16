@@ -40,6 +40,37 @@ export const useAddExam = () => {
     students: [],
   });
 
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const newErrors = {};
+
+    if (!mainTestData.courseName) {
+      newErrors.courseName = "Batch ID is required.";
+    }
+    if (!mainTestData.date) {
+      newErrors.date = "Date is required.";
+    }
+    if (!mainTestData.time) {
+      newErrors.time = "Time is required.";
+    }
+    if (!mainTestData.passKey) {
+      newErrors.passKey = "Pass Key is required.";
+    }
+    if (!mainTestData.purpose) {
+      newErrors.purpose = "Purpose is required.";
+    }
+    if (!mainTestData.resultType) {
+      newErrors.resultType = "Result Type is required.";
+    }
+    if (!mainTestData.level) {
+      newErrors.level = "Level is required.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Returns true if no errors
+  };
+
   useEffect(() => {
     dispatch(adminBatchWiseStudent({ token }));
     dispatch(adminAllExamSections({ token }));
@@ -153,19 +184,23 @@ export const useAddExam = () => {
   // post data
   const handleSubmit = (e) => {
     e.preventDefault();
-    API.post("/admin/add-exams", mainTestData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => {
-        console.log(response.data);
-        alert("Test added successfully");
+    if (validate()) {
+      API.post("/admin/add-exams", mainTestData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .catch((e) => {
-        console.log(e);
-        alert(e?.response?.data?.message);
-      });
+        .then((response) => {
+          console.log(response.data);
+          alert("Test added successfully");
+        })
+        .catch((e) => {
+          console.log(e);
+          alert(e?.response?.data?.message);
+        });
+    } else {
+      console.log("validation fialed");
+    }
   };
 
   return {
@@ -182,5 +217,6 @@ export const useAddExam = () => {
     handleSubmit,
     setMainTestData,
     profile,
+    errors,
   };
 };
