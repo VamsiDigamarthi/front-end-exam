@@ -199,7 +199,7 @@ const Instruction = () => {
 
     // Ensure total marks match the required totalMarks
     if (currentMarks < totalMarks) {
-      const additionalQuestionsNeeded = totalMarks - currentMarks;
+      let additionalQuestionsNeeded = totalMarks - currentMarks;
       // Try to add additional one-mark questions if needed
       while (additionalQuestionsNeeded > 0 && shuffledOneMark.length > 0) {
         selectedQuestions.push(shuffledOneMark.shift());
@@ -641,7 +641,7 @@ const Instruction = () => {
                   <h4>Seconds</h4>
                 </div>
               </div>
-              <div className="student-exam-question-number-card">
+              <div className="student-exam-question-number-card new-student-exam-question-number-card">
                 <div className="student-exam-question-section-data">
                   {mainQuestionData?.map((each, key) => (
                     <p

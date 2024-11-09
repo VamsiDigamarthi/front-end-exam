@@ -37,3 +37,19 @@
   align-items: center;
   flex-direction: column;
 }
+
+@media (max-width: 768px) {
+  .start-quize-main {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    height: fit-content;
+  }
+  .start-quize-left {
+    width: 100%;
+    height: 450px;
+  }
+  .start-quize-right {
+    width: 100%;
+    position: relative;
+  }
+}

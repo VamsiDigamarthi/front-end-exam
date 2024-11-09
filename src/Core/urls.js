@@ -4,6 +4,8 @@ import axios from "axios";
 //   baseURL: "https://examwebsiteapi.nuhvin.com",
 // });
 
+// export const APIURL = "https://examwebsiteapi.nuhvin.com";
+
 export const API = axios.create({
   baseURL: "http://localhost:5004",
 });

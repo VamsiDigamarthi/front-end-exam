@@ -58,3 +58,7 @@
     height: fit-content;
   }
 }
+
+.exam-details-container {
+  overflow-y: scroll;
+}

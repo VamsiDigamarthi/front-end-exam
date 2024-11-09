@@ -53,9 +53,6 @@ export const useQuizeNewHook = () => {
   };
 
   const onQuizeStatedFun = () => {
-    console.log(storeUserSelectCourseName);
-    console.log(storeUserSelectTopicName);
-    console.log(initiallyStoreAllQuize);
     if (storeUserSelectCourseName && storeUserSelectTopicName) {
       const onFilterQuestion = initiallyStoreAllQuize?.filter(
         (each) =>
