@@ -19,7 +19,7 @@ const StudentFeedBack = ({ examId, userEmail }) => {
   return (
     <>
       {alredyFeedbackExist ? (
-        <div className="student-already-feedbacks">
+        <div className="student-already-feedbacks thankyou">
           <h2>Thank You!</h2>
         </div>
       ) : (
